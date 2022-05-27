@@ -1,7 +1,9 @@
 import { ArrowLeft } from "phosphor-react"
 import { useState, FormEvent } from "react"
 import { feedbacksTypes, feedbackTypes } from ".."
+import { api } from "../../../services/api"
 import { CloseButton } from "../../CloseButton"
+import { Loading } from "../../Loading"
 import { ScreenshotButton } from "../ScreenshotButton"
 
 
@@ -15,17 +17,25 @@ export const FeedbackContentStep = ({ feedbackType, onFeedbackRestartRequested, 
 
     const [screenshot, setScreenshot] = useState<string | null>(null)
     const [comment, setComment] = useState('')
+    const [isSendingFeedback, setIsSendingFeedback] = useState(false)
 
     
     const feedbackInfo = feedbacksTypes[feedbackType]
 
-    const handleSubmitFeedback = (event: FormEvent) => {
+    const handleSubmitFeedback = async (event: FormEvent) => {
         event.preventDefault()
-        console.log({
+        //console.log({
+        //    screenshot,
+        //    comment
+        //})
+        setIsSendingFeedback(true)
+        await api.post('feedbacks', {
+            type: feedbackType,
             screenshot,
             comment
         })
 
+        setIsSendingFeedback(false)
         onFeedbackSent()
     }
 
@@ -55,11 +65,11 @@ export const FeedbackContentStep = ({ feedbackType, onFeedbackRestartRequested, 
             <footer className="flex gap-2 mt-2" >
                 <ScreenshotButton screenshot={screenshot} onScreenshotTook={setScreenshot}/>
                 <button 
-                    disabled={comment.length === 0}
+                    disabled={comment.length === 0 || isSendingFeedback}
                     type="submit"
                     className="p-2 bg-brand-500 rounded-md border-transparent flex-1 flex justify-center items-center text-sm hover:bg-brand-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500 transition-colors disabled:opacity-50 disabled:hover:bg-brand-500 "
                 >
-                    Enviar feedback
+                    { isSendingFeedback ? <Loading /> : 'Enviar feedback' }
                 </button>
 
             </footer>
