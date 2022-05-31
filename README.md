@@ -4,7 +4,6 @@ Site para o usuário fazer um feedback do site, sendo de um bug, ideia ou outro.
 <h1 align="center">
     <a href="https://feedback-widget-web-two.vercel.app/">🔗 FeedbackWidget</a>
 </h1>
-<p align="center">🚀 Aplicação web moveitnow</p>
 
 ## ✨ Tecnologias
 
