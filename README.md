@@ -5,6 +5,26 @@ Site para o usuário fazer um feedback do site, sendo de um bug, ideia ou outro.
     <a href="https://feedback-widget-web-two.vercel.app/">🔗 FeedbackWidget</a>
 </h1>
 
+<strong>Botão Widget:</strong>
+<br/>
+<img src="src/assets/github/WidgetClose.png" alt="Botão Widget"/>
+
+<strong>Widget Aberto:</strong>
+<br/>
+<img src="src/assets/github/Options.png" alt="Opções"/>
+
+<strong>Tipo de Feedback selecionado:</strong>
+<br/>
+<img src="src/assets/github/OptionSelected.png" alt="Opção selecionada"/>
+
+<strong>Formulário preenchido:</strong>
+<br/>
+<img src="src/assets/github/Form.png" alt="Formulário preenchido com texto e imagem"/>
+
+<strong>Feedback enviado:</strong>
+<br/>
+<img src="src/assets/github/Success.png" alt="Modal de Sucesso"/>
+    
 ## ✨ Tecnologias
 
 -   [ ] React
